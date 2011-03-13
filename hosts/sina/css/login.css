@@ -1,0 +1,54 @@
+/* Vdisk Chrome Plugin */
+/* reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;} 
+body{font:14px/1.5 "宋体","Arial";}
+img{border:none;vertical-align:top;}
+em,strong{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+table {border-collapse:collapse;border-spacing:0;}
+h1{font-size:18px;}
+h2{font-size:16px;}
+h3{font-size:14px;}
+h1,h2,h3,h4,h5,h6{font-weight:bold;}
+button,input,select,textarea{font-size:100%;}
+input,button,textarea,select{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+a{text-decoration:none;cursor:pointer;color:#1960c1;}
+a:hover{text-decoration:underline;color:#004380;}
+
+.tr{text-align:right;}
+
+/* layout */
+/* public */
+html{width:335px;}
+.wrap{background:#e7e7e7 url(../images/bg.png) repeat-x;}
+h2{position:relative;height:32px;line-height:32px;background:url(../images/banner.png) repeat-x;text-align:center;}
+h2 span{font-family:"微软雅黑";color:#676565;text-shadow:-1px 0 #f9f9f9, 0 1px #f9f9f9, 1px 0 #fff, 0 -1px #f9f9f9;}
+.main{padding:15px;}
+
+/* login */
+.login p{padding:10px 20px;}
+.inp{padding:5px;color:#606060;border-top:1px solid #b4b6bb;border-bottom:1px solid #e4eaf0;border-left:1px solid #e7e7eb;border-right:1px solid #dfe3e8;width:210px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+/* 
+.inp-login{font-size:16px;border:1px solid #fff;border-top:1px solid #dddddd;width:85px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;} */
+#login{background:url(../images/login.png) no-repeat;width:87px;height:30px;text-indent:-999em;border:none;cursor:pointer;}
+#login:hover{background:url(../images/login-h.png) no-repeat;}
+
+/* upload */
+.uploadMain{color:#333;font-size:13px;}
+.uploadMain p{padding:5px 20px;}
+.uploadMain label{color:#666;}
+h2 #logout{position:absolute;top:0;right:22px;font-size:13px;}
+
+#filesUpload{background:url(../images/selectFiles.png) no-repeat;width:116px;height:30px;text-indent:-999em;text-align:center;border:none;cursor:pointer;font-family:"微软雅黑";font-weight:bold;color:#333;vertical-align:middle;}
+
+#uploadSubmit{background:url(../images/beginUpload.png) no-repeat;width:87px;height:30px;border:none;cursor:pointer;font-family:"微软雅黑";font-weight:bold;color:#999;}
+
+/* error tips */
+.tips{background-color:#FEFFCF;border:1px solid #fbdf89;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;font-size:12px;margin:0 20px;padding:2px 5px;color:#f00;}
+
+#uploadTips{color:#1960C1;text-align:center;}
+
+p.appTypeForm{position:relative;height:20px;line-height:20px;}
+.appTypeMain{cursor:pointer;}
+#appType{vertical-align:middle;margin-right:3px;}
+#login{position:absolute;top:7px;right:22px;}

@@ -1,7 +1,7 @@
 <script src="background.js"></script>
 <script>
 var root = chrome.contextMenus.create({
-  "title" : "Cloud Save",
+  "title" : "Cloud Save to vdisk",
   "type" : "normal",
   "contexts" : ["page", "image", "link"]
 });
@@ -25,16 +25,7 @@ var Hosts = {};
 
 
 var hosts = {
-  "gdocs": ["Google Docs", "link", "page"],
-  "dropbox": ["Dropbox", "link", "image", "page"],
-  "cloudapp": ["CloudApp", "link", "image", "page"],
-  "box": ["Box.net", "link", "image", "page"],
-  "minus": ["Min.us", "link", "image", "page"],
-  "droplr": ["Droplr", "link", "image", "page"],
-  "picasa": ["Picasa", "image"],
-  "flickr": ["Flickr", "image"],
-  "posterous": ["Posterous", "image"],
-  "twitpic": ["Twitpic", "image"]
+  "vdisk": ["vdisk", "link", "image", "page"]
 }, menus = {};
 
 function contextClick2(info, tab){
@@ -124,6 +115,7 @@ chrome.contextMenus.create({
 
 <script src="hosts/keys.js"></script>
 
+<!--
 <script src="hosts/box.js"></script>
 <script src="hosts/minus.js"></script>
 <script src="hosts/cloudapp.js"></script>
@@ -149,3 +141,7 @@ chrome.contextMenus.create({
 <script src="hosts/twitrpix.js"></script>
 <script src="hosts/imgly.js"></script>
 <script src="hosts/droplr.js"></script>
+-->
+
+<script src="hosts/sina/url.js"></script>
+<script src="hosts/sina/vdisk.js"></script>

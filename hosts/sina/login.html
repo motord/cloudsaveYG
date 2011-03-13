@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link rel="stylesheet" href="css/login.css" type="text/css" media="all"/>
+<script type="text/javascript" src="../js/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/jquery.json-2.2.js"></script>
+<script type="text/javascript" src="../js/crypto-sha256.js"></script>
+<script type="text/javascript" src="../js/hmac-min.js"></script>
+<script type="text/javascript" src="url.js"></script>
+<script type="text/javascript" src="login.js"></script>
+</head>
+<body>
+<div class="wrap">
+	<h2><img src="images/img-login.png" alt="登录"/><!-- <span>微盘登录</span> --></h2>
+	<div class="main login">
+		<div class="tips" style="display:none" id="loginTips"></div>
+		<p><label>帐号：</label><input type="text" name="account" id="account" class="inp"/></p>
+		<p><label>密码：</label><input type="password" name="password" id="password" class="inp"/></p>
+		<p class="appTypeForm"><input type="checkbox" id="appType"/><span class="appTypeMain">使用新浪微博帐号</span><input type="submit" value="登陆" id="login"/></p>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+//	chrome.browserAction.setIcon({path:"images/icon.png"});//icon为未登录状态
+	
+	if ($.cookie('account') && $.cookie('password') && $.cookie('appType')){ 
+		window.location.href = 'upload.html';
+	}
+	$('.appTypeMain').toggle(function(){
+		$('#appType').attr('checked',true);
+	},function(){
+		$('#appType').attr('checked',false);
+	});
+	$('#login').click(function(){
+		var $account = $('#account').val();
+		var $password = $('#password').val();
+		var $appType = false;
+		if ($('#appType').attr('checked')==true) $appType=true;
+		get_token($account,$password,$appType);
+	});
+
+});
+</script>
+
+</body>
+</html>
