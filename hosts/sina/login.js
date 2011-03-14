@@ -72,14 +72,8 @@ function loginCallback(dataContent){
 //	     $('#loginTips').show().html(dataContent.err_code+','+dataContent.err_msg);
 	}else{
 		saveId();
-		$.cookie('token',dataContent.data.token,{expires:7,path: '/'}); 
-
-//	    $('#loginTips').show().html(dataContent.data.token);
 		$('#loginTips').show().html('<span style="color:green">登录中...</span>');
-		setTimeout(gotoUpload,1200);
-		function gotoUpload(){
-			window.location.href = 'upload.html';
-		}
+		window.location.href = 'login.html?auth_token='+dataContent.data.token;
 	}
 }
 //保存账号和密码

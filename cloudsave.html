@@ -93,6 +93,15 @@ chrome.contextMenus.create({
   "parentId": root
 });
 chrome.contextMenus.create({
+  "title" : "Log out",
+  "type" : "normal",
+  "parentId": root,
+	"onclick": function(){
+		localStorage.clear();
+	},
+  "contexts" : ["all"]
+});
+chrome.contextMenus.create({
   "title" : "Add/Remove",
   "type" : "normal",
   "parentId": root,
@@ -110,6 +119,8 @@ chrome.contextMenus.create({
 
 <script src="hosts/js/sha1.js"></script>
 <script src="hosts/js/md5.js"></script>
+<script src="hosts/js/crypto-sha256.js"></script>
+<script src="hosts/js/hmac-min.js"></script>
 <script src="files.js"></script>
 
 
