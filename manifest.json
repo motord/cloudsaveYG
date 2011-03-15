@@ -1,8 +1,8 @@
 {
-  "name": "Cloud Save to vdisk",
+  "name": "Cloud Save YG",
   "version": "1.0.0",
-  "description": "Save to Sina vdisk.",
-  "update_url": "http://md.samdeha.com/cloudsave2vdisk/update.xml",
+  "description": "Save to Cloud.",
+  "update_url": "http://md.samdeha.com/cloudsaveYG/update.xml",
   "background_page": "cloudsave.html",
   "permissions": [
     "*://*/",
