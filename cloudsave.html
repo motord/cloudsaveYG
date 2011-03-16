@@ -25,7 +25,7 @@ var Hosts = {};
 
 
 var hosts = {
-<!--
+/*
   "gdocs": ["Google Docs", "link", "page"],
   "dropbox": ["Dropbox", "link", "image", "page"],
   "cloudapp": ["CloudApp", "link", "image", "page"],
@@ -36,7 +36,7 @@ var hosts = {
   "flickr": ["Flickr", "image"],
   "posterous": ["Posterous", "image"],
   "twitpic": ["Twitpic", "image"],
--->
+*/
   "vdisk": ["vdisk", "link", "image", "page"]
 }, menus = {};
 
@@ -105,7 +105,7 @@ chrome.contextMenus.create({
   "parentId": root
 });
 chrome.contextMenus.create({
-  "title" : "Log out",
+  "title" : "Clear localStorage",
   "type" : "normal",
   "parentId": root,
 	"onclick": function(){

@@ -1,5 +1,8 @@
 //vdisk.me
 Hosts.vdisk = function uploadvdisk(file, callback) {
+    var $appkey = 10550530;
+    var $app_secret = '92d1b4870c03f44e7cbc3421dfa339d5';	
+    
     function create_folder() {
         if (typeof localStorage.vdisk_token == 'undefined') {
             if (typeof localStorage.vdisk_account == 'undefined') {
@@ -26,9 +29,26 @@ Hosts.vdisk = function uploadvdisk(file, callback) {
                 console.log(xhr.responseText);
                 var json = JSON.parse(xhr.responseText);
                 console.log(json);
-                var fid = json.data.dir_id;
-                console.log('folder ID', fid);
-                upload(fid);
+                if(json.err_code==0){
+	                var fid = json.data.dir_id;
+	                localStorage.vdisk_dir_id=fid;
+	                console.log('folder ID', fid);
+	                upload(fid);
+                }else if(json.err_code==702){//invalid token
+	                 get_token(function () {
+	                    create_folder();
+	                });
+                }else if(json.err_code==6){//create_name is not unique
+                	var fid = localStorage.vdisk_dir_id;
+                	if(typeof fid == 'undefined'){
+                	  	get_dir_id(function () {
+		                    create_folder();
+		                }); 
+                	}else{
+	                	console.log('folder ID', fid);
+		                upload(fid);
+	                }
+                }
             }
         }
     }
@@ -39,13 +59,51 @@ Hosts.vdisk = function uploadvdisk(file, callback) {
       return str.join('&');
     }
     
+    function signature(account, password, time){
+    	return Crypto.HMAC(Crypto.SHA256, "account="+account+"&appkey="+$appkey+"&password="+password+"&time="+time,$app_secret);
+    }
+    
     function get_token(stopforward) {
         xhr = new XMLHttpRequest();
         xhr.open('POST', URL_GET_TOKEN);
-        xhr.send('token=' + localStorage.vdisk_token + '&create_name=' + fname + '&parent_name=&parent_id=0');
+	 	var $timeNow = new Date().getTime();
+		var $time = $timeNow.toString().substring(0,10);
+		var $account = localStorage.vdisk_account;
+		var $password = localStorage.vdisk_password;
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(params({account : $account,
+        	password : $password,
+        	appkey : $appkey,
+        	time : $time,
+        	signature : signature($account, $password, $time),
+        }));
         xhr.onload = function () {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json);
+	        console.log(xhr.responseText);
+	        var json = JSON.parse(xhr.responseText);
+	        console.log(json);
+	        if(json.err_code==0){
+	        	localStorage.vdisk_token=json.data.token;
+	        	stopforward();
+	        }
+        }
+    }
+
+    function get_dir_id(stopforward) {
+        xhr = new XMLHttpRequest();
+        var fpath='/cloudsave/';
+        xhr.open('POST', URL_GET_DIRID_WITH_PATH);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(params({token : localStorage.vdisk_token,
+            	path : fpath
+        }));
+        xhr.onload = function () {
+	        console.log(xhr.responseText);
+	        var json = JSON.parse(xhr.responseText);
+	        console.log(json);
+	        if(json.err_code==0){
+	        	localStorage.vdisk_dir_id=json.data.id;
+	        	stopforward();
+	        }
         }
     }
 
