@@ -19,8 +19,8 @@ a:hover{text-decoration:underline;color:#004380;}
 
 /* layout */
 /* public */
-html{width:335px;}
-.wrap{background:#e7e7e7 url(../images/bg.png) repeat-x;}
+/* html{width:335px;} */
+.wrap{background:#e7e7e7 url(../images/bg.png) repeat-x; top: 50%; left: 50%; margin-left: -168px; margin-top: -99px; position: absolute;}
 h2{position:relative;height:32px;line-height:32px;background:url(../images/banner.png) repeat-x;text-align:center;}
 h2 span{font-family:"微软雅黑";color:#676565;text-shadow:-1px 0 #f9f9f9, 0 1px #f9f9f9, 1px 0 #fff, 0 -1px #f9f9f9;}
 .main{padding:15px;}
