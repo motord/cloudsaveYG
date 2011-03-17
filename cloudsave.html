@@ -37,7 +37,7 @@ var hosts = {
   "posterous": ["Posterous", "image"],
   "twitpic": ["Twitpic", "image"],
 */
-  "vdisk": ["vdisk", "link", "image", "page"]
+  "vdisk": [chrome.i18n.getMessage("vdisk"), "link", "image", "page"]
 }, menus = {};
 
 function contextClick2(info, tab){
@@ -105,7 +105,7 @@ chrome.contextMenus.create({
   "parentId": root
 });
 chrome.contextMenus.create({
-  "title" : "Clear localStorage",
+  "title" : chrome.i18n.getMessage("clearLocalStorage"),
   "type" : "normal",
   "parentId": root,
 	"onclick": function(){
@@ -113,6 +113,7 @@ chrome.contextMenus.create({
 	},
   "contexts" : ["all"]
 });
+/*
 chrome.contextMenus.create({
   "title" : "Add/Remove",
   "type" : "normal",
@@ -124,7 +125,7 @@ chrome.contextMenus.create({
 	},
   "contexts" : ["all"]
 });
-
+*/
       
 </script>
 

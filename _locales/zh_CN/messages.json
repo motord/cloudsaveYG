@@ -1,0 +1,14 @@
+{
+	"extName":{
+		"message": "Cloud Save YG(云归)",
+		"description": "Extension name."
+	},
+	"vdisk":{
+		"message": "微盘",
+		"description": "vdisk."
+	},
+	"clearLocalStorage":{
+		"message": "清除localStorage",
+		"description": "Clear localStorage."
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"extName":{
+		"message": "Cloud Save YG",
+		"description": "Extension name."
+	},
+	"vdisk":{
+		"message": "vdisk",
+		"description": "vdisk."
+	},
+	"clearLocalStorage":{
+		"message": "Clear localStorage",
+		"description": "Clear localStorage."
+	}
+}
